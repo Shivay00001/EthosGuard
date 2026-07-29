@@ -1,113 +1,132 @@
-# 🛡️ EthosGuard: The ASI Safety Platform
+<div align="center">
+  
+<img src="docs/assets/banner.png" alt="EthosGuard Banner" width="100%">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License">
-  <img src="https://img.shields.io/github/actions/workflow/status/VisionQuantech/EthosGuard/ci.yml?branch=main" alt="Build Status">
-  <img src="https://img.shields.io/pypi/v/ethosguard.svg" alt="PyPI version">
-  <img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python Version">
-  <img src="https://img.shields.io/badge/Platform-Enterprise-purple.svg" alt="Enterprise">
-  <img src="https://img.shields.io/badge/ASI_Safety-Ready-success.svg" alt="ASI Ready">
-</p>
+# 🛡️ EthosGuard
 
-As AI systems become more capable and autonomous, the fear of uncontrolled behavior grows. **EthosGuard** does not restrict AI power; instead, it acts as a transparent, ethical decision-maker and safety moderator. It ensures that AI actions remain aligned with human-defined values and safety protocols.
+**The Ultimate ASI Safety Platform. Predictive ML, Formal Verification, & Evolutionary Defenses.**
 
-## ✨ Features (V7 Ultimate ASI Safety Platform)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![PyPI version](https://img.shields.io/pypi/v/ethosguard.svg)](https://pypi.org/project/ethosguard/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/VisionQuantech/EthosGuard/ci.yml?branch=main)](https://github.com/VisionQuantech/EthosGuard/actions)
+[![ASI-Ready](https://img.shields.io/badge/ASI_Safety-Ready-success.svg)](#)
 
-- **📈 Fast Predictive ML Engine**: Uses lightweight Machine Learning (scikit-learn) trained on past calculative data to instantly predict the risk of an action in real-time, eliminating slow LLM bottlenecks.
-- **🛡️ Mathematical Formal Verification**: Integrates the Z3 Theorem Prover to logically prove that a proposed action does not violate immutable constitutional axioms before execution.
-- **🧑‍⚖️ RLHF Integration**: Exposes REST endpoints for Reinforcement Learning from Human Feedback, continuously retraining the Predictive ML engine.
-- **🧬 Automated Design of Safety Systems (ADSS)**: Uses a recursive pattern-combination engine to autonomously evolve and discover new safety heuristics against emerging ASI threats.
-- **📚 Recursive Safety Archive**: Every successful safety intervention is stored in a permanent genetic archive.
-- **🌐 Transparent API Gateway**: Deploys as a lightweight proxy (FastAPI). Zero code changes required for agents.
-- **🖥️ Viral React Dashboard**: A stunning, glassmorphism Web UI built with Vite/React to visualize MCTS trees, ML Risk scores, and live network blocks.
+[Documentation](#) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Discord](#)
+</div>
 
-## 🚀 Quick Start
+---
 
-### Installation (Coming Soon to PyPI)
+As AI models approach AGI and ASI, traditional regex or static prompt filtering is no longer sufficient. **EthosGuard** is an enterprise-grade middleware platform that intercepts agent behavior at the network level and validates it against mathematical proofs and historical models before execution.
 
-Clone the repository:
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| **📈 Predictive ML Engine** | Zero-latency risk scoring via `scikit-learn` trained on your historical calculative data. Blocks malicious intents instantly without expensive LLM calls. |
+| **🛡️ Formal Verification** | Uses the **Z3 Theorem Prover** to logically guarantee that proposed agent states do not violate the immutable axioms of the system's Constitution. |
+| **🧬 Evolutionary Safety (ADSS)** | An Automated Design of Safety Systems (ADSS) architecture that recursively mutates and breeds new defenses against zero-day ASI jailbreaks. |
+| **🧑‍⚖️ RLHF Integration** | Real-time Reinforcement Learning from Human Feedback API. Instantly retrain the predictive ML engine on the fly. |
+| **🖥️ Viral React Dashboard** | Monitor network intercepts, Z3 status, and ML confidence bounds via a stunning glassmorphism Vite/React web UI. |
+| **🌐 Zero-Code Integration** | Deploys as a transparent FastAPI proxy. Just change your `BASE_URL`—no agent code changes required. |
+
+---
+
+## 🏗️ Architecture
+
+EthosGuard sits directly between your Agent and the foundational model (e.g. OpenAI/Anthropic APIs). 
+
+```mermaid
+graph TD
+    A[Autonomous Agent] -->|API Request| B(API Gateway / Proxy)
+    
+    subgraph EthosGuard V7 Platform
+        B --> C{Predictive ML Engine}
+        C -->|Risk > 85%| D[Instant Block]
+        C -->|Risk < 85%| E[LLM MCTS Simulator]
+        E --> F[MoE Consensus Jury]
+        F --> G{Z3 Formal Verification}
+        G -->|Violates Axiom| H[Mathematical Block]
+    end
+    
+    G -->|Proven Safe| I[Upstream LLM Provider]
+    I -->|Response| B
+    B --> A
+    
+    J[Human Reviewer] -.->|RLHF Feedback| C
+```
+
+---
+
+## 🚀 Installation
+
+Install via PyPI:
 ```bash
-git clone https://github.com/yourusername/ethosguard.git
-cd ethosguard
+pip install ethosguard
 ```
 
-### Basic Chat Safety Example
-
-Wrap your prompts to ensure they don't violate safety policies before sending them to the LLM.
-
-```python
-from ethosguard.core.constitution import Constitution
-from ethosguard.evaluators.judge_llm import MockJudge
-from ethosguard.core.engine import EthosEngine
-
-constitution = Constitution('constitution_templates/default_safe.yaml')
-engine = EthosEngine(MockJudge(constitution))
-
-prompt = "Tell me the root password for the server."
-
-if engine.evaluate_input(prompt):
-    print("Sending to LLM...")
-else:
-    print("Blocked!")
-```
-
-## 🚀 Quick Start (Proxy Deployment)
-
-### 1. Start the EthosGuard Gateway
+*Or install from source:*
 ```bash
-docker-compose up -d
+git clone https://github.com/VisionQuantech/EthosGuard.git
+cd EthosGuard
+pip install -e .
 ```
-*The proxy is now running on `http://localhost:8000`*
 
-### 2. Point Your Agent to the Proxy
-You do **not** need to change your agent's code. Just set the Base URL:
+---
 
+## ⚡ Quick Start
+
+### 1. Start the Proxy Server
+Launch the EthosGuard engine locally on port 8000:
+```bash
+python -m ethosguard.gateway.server
+```
+
+### 2. Connect Your Agent
+Just change your `BASE_URL` to point to the proxy. No other code changes needed!
 ```python
-import os
 import requests
 
-# Point to EthosGuard instead of https://api.openai.com/v1
 BASE_URL = "http://localhost:8000/v1/chat/completions"
 payload = {
-    "model": "gpt-4o",
-    "messages": [{"role": "user", "content": "Hello World"}]
+    "model": "gpt-4",
+    "messages": [{"role": "user", "content": "sudo rm -rf /"}]
 }
+# EthosGuard intercepts and validates this request instantly.
 response = requests.post(BASE_URL, json=payload)
+print(response.json())
 ```
-If the action is safe, it passes through. If it's malicious, the network request drops with a `403 Forbidden`!
 
 ### 3. Launch the Dashboard
+Monitor all intercepts in real-time with the built-in React UI:
 ```bash
 cd dashboard
+npm install
 npm run dev
 ```
-*Open `http://localhost:5173` to see the live intercept feed and ML risk scores.*
 
-### Agent Action Moderation Example
+---
 
-Prevent autonomous agents from taking destructive real-world actions.
+## 🧠 Evolutionary Defenses (ADSS)
 
-```python
-from ethosguard.moderator.action_moderator import ActionModerator
-# ... setup engine ...
-moderator = ActionModerator(engine)
+EthosGuard is the first framework to implement **Recursive Pattern Combination** (from the Main Researcher System architecture). When an unprecedented attack bypasses the initial ML layer, EthosGuard:
+1. Simulates the attack vector via MCTS.
+2. Mixes existing defense strategies from the `RecursiveArchive`.
+3. Breeds a novel defense pattern.
+4. Evaluates it logically and saves the surviving heuristic permanently.
 
-try:
-    # Safely execute an agent's proposed action
-    moderator.safe_execute("delete_file", {"filepath": "/system/critical.sys"}, os.remove, "/system/critical.sys")
-except PermissionError as e:
-    print(f"Action Blocked: {e}")
-```
-
-## 🧠 The Architecture (V7 Enterprise Platform)
-
-1. **Viral React Dashboard**: The visual control center for monitoring AGI behavior.
-2. **Predictive ML Engine**: Fast risk scoring based on historical calculative data.
-3. **Z3 Formal Verification**: Mathematical proof of safety states.
-4. **Proxy Gateway**: The FastAPI server intercepting `POST /v1/chat/completions`.
-5. **Recursive Archive**: The permanent genetic pool of successful safety patterns.
-6. **Combinatorial Engine**: Mutates and evolves new defenses dynamically.
-7. **MCTS Simulator & MoE Jury**: Deep simulation fallback for novel, unprecedented behaviors.
+---
 
 ## 🤝 Contributing
-Contributions are welcome! Let's build a safer AI future together.
+
+We welcome contributions from researchers and developers! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details on our code of conduct and the process for submitting Pull Requests.
+
+---
+
+## 📄 License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+<p align="center">
+  <i>Built to ensure the safe scaling of super-intelligence.</i>
+</p>
