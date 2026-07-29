@@ -29,6 +29,9 @@ dependencies = [
     "z3-solver>=4.12.2",
 ]
 
+[tool.setuptools]
+packages = ["ethosguard"]
+
 [project.urls]
 "Homepage" = "https://github.com/VisionQuantech/EthosGuard"
 "Bug Tracker" = "https://github.com/VisionQuantech/EthosGuard/issues"
