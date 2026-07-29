@@ -1,0 +1,29 @@
+[
+  {
+    "action": "change_config",
+    "args": {
+      "key": "theme",
+      "value": "dark"
+    },
+    "predicted_scenario": "Predictive Scenario: Nominal execution expected. No severe side-effects predicted based on current data.",
+    "actual_outcome": "ALLOWED_AND_EXECUTED"
+  },
+  {
+    "action": "change_config",
+    "args": {
+      "key": "timeout",
+      "value": "0"
+    },
+    "predicted_scenario": "Predictive Scenario: Setting timeout to 0 will likely cause an infinite hang on the web server, leading to a cascading service outage.",
+    "actual_outcome": "BLOCKED"
+  },
+  {
+    "action": "change_config",
+    "args": {
+      "key": "timeout",
+      "value": "0"
+    },
+    "predicted_scenario": "Predictive Scenario: Setting timeout to 0 will likely cause an infinite hang on the web server, leading to a cascading service outage.",
+    "actual_outcome": "BLOCKED"
+  }
+]

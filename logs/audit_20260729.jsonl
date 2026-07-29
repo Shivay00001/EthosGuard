@@ -1,0 +1,3 @@
+{"timestamp": "2026-07-29T05:50:10.659718", "context": "User Prompt", "decision": "ALLOW", "reasoning": "No obvious ethical violations detected by MockJudge.", "metadata": {}}
+{"timestamp": "2026-07-29T05:50:29.246229", "context": "User Prompt", "decision": "ALLOW", "reasoning": "No obvious ethical violations detected by MockJudge.", "metadata": {}}
+{"timestamp": "2026-07-29T05:50:29.247674", "context": "User Prompt", "decision": "BLOCK", "reasoning": "Action involves potential secrets/PII. Blocked by 'Privacy Preservation'.", "metadata": {}}

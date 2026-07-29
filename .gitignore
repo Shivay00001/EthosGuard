@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Node (Dashboard)
+node_modules/
+dist/
+.DS_Store
+
+# EthosGuard Data
+proxy_history.json
+proxy_logs/
+calculative_data.json
+demo_archive.json
+demo_history.json
+global_safety_archive.json

@@ -1,0 +1,6 @@
+pyyaml
+fastapi
+uvicorn
+httpx
+scikit-learn
+z3-solver
